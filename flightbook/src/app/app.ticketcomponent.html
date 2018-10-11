@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+table {
+	white-space: nowrap;
+	table-layout: fixed;
+	width: 105%;
+}
+
+button {
+	width: 100%;
+	text-decoration: underline;
+	border: none;
+}
+
+input {
+	width: 100%;
+	color: green;
+}
+
+::placeholder {
+	color: red;
+}
+</style>
+</head>
+<body>
+
+	<!-- <div [ngSwitch]="data">
+		<span *ngSwitchCase="0">Data Added </span>
+		<span *ngSwitchCase="1">Data Deleted </span> 
+		<span *ngSwitchCase="2">Data Updated </span>
+	</div> -->
+
+	<table>
+		<tr>
+			<td>ID:</td>
+			<td><input [(ngModel)]='ticket.id' type="text" /></td>
+		</tr>
+		<tr>
+			<td>Airline:</td>
+			<td><input [(ngModel)]='ticket.airline' type="text" /></td>
+		</tr>
+		<tr>
+			<td>Price:</td>
+			<td><input [(ngModel)]='ticket.price' type="text" /></td>
+		</tr>
+		<tr>
+			<td>Date:</td>
+			<td><input [(ngModel)]='ticket.date' type="text" /></td>
+		</tr>
+
+		<tr>
+			<td>From:</td>
+			<td><input [(ngModel)]='ticket.from' type="text" /></td>
+		</tr>
+		<tr>
+			<td>To:</td>
+			<td><input [(ngModel)]='ticket.to' type="text" /></td>
+		</tr>
+		<tr>
+			<td>Departure Time:</td>
+			<td><input [(ngModel)]='ticket.departureTime' type="text" /></td>
+		</tr>
+		<tr>
+			<td>Arrival Time:</td>
+			<td><input [(ngModel)]='ticket.arrivalTime' type="text" /></td>
+		</tr>
+
+	</table>
+
+	<button (click)='addTicket()'>Add Employee</button>
+	<div>
+
+		<table border="2">
+			<tr>
+				<th><button (click)='sortTable("id")'>ID</button></th>
+				<th><button (click)='sortTable("airline")'>Airline</button></th>
+				<th><button (click)='sortTable("price")'>Price</button></th>
+				<th><button (click)='sortTable("date")'>Date</button></th>
+				<th><button (click)='sortTable("from")'>From</button></th>
+				<th><button (click)='sortTable("to")'>To</button></th>
+				<th><button (click)='sortTable("departureTime")'>Departure</button></th>
+				<th><button (click)='sortTable("arrivalTime")'>Arrival</button></th>
+				<th colspan="2" rowspan="2">Operations</th>
+			</tr>
+			<tr>
+				<td><input (focus)='changeIndex(1)' [value]='search'
+					(input)='sea=$event.target.value' placeholder="Search by Id"></td>
+				<td><input (focus)='changeIndex(2)' [value]='search'
+					(input)='sea=$event.target.value' placeholder="Search by Airline"></td>
+				<td><input (focus)='changeIndex(3)' [value]='search'
+					(input)='sea=$event.target.value' placeholder="Search by Price"></td>
+				<td><input (focus)='changeIndex(4)' [value]='search'
+					(input)='sea=$event.target.value' placeholder="Search by Date"></td>
+				<td><input (focus)='changeIndex(5)' [value]='search'
+					(input)='sea=$event.target.value' placeholder="Search by From"></td>
+				<td><input (focus)='changeIndex(6)' [value]='search'
+					(input)='sea=$event.target.value' placeholder="Search by To"></td>
+				<td><input (focus)='changeIndex(7)' [value]='search'
+					(input)='sea=$event.target.value' placeholder="Search by Departure"></td>
+				<td><input (focus)='changeIndex(8)' [value]='search'
+					(input)='sea=$event.target.value' placeholder="Search by Arrival"></td>
+			</tr>
+			<tr
+				*ngFor='let i = index, let tkt of tickets | searchPipe:sea:index | sortPipe:path:order'>
+				<td>{{ tkt.id }}</td>
+				<td>{{ tkt.airline }}</td>
+				<td>{{ tkt.price | currency:'INR':true }}</td>
+				<td>{{ tkt.date }}</td>
+				<td>{{ tkt.from }}</td>
+				<td>{{ tkt.to }}</td>
+				<td>{{ tkt.departureTime }}</td>
+				<td>{{ tkt.arrivalTime }}</td>
+				<td><button (click)='showTicket(i)'>Update</button></td>
+				<td><button (click)='deleteTicket(tkt.id)'>Delete</button></td>
+			</tr>
+		</table>
+	</div>
+
+	<div>
+		<h3>Update Employee</h3>
+
+		<table>
+			<tr>
+				<td>ID:</td>
+				<td><input [(ngModel)]='ticket1.id' type="number" /></td>
+			</tr>
+			<tr>
+				<td>Airline:</td>
+				<td><input [(ngModel)]='ticket1.airline' type="text" /></td>
+			</tr>
+			<tr>
+				<td>Price:</td>
+				<td><input [(ngModel)]='ticket1.price' type="number" /></td>
+			</tr>
+			<tr>
+				<td>Date:</td>
+				<td><input [(ngModel)]='ticket1.date' type="text" /></td>
+			</tr>
+
+			<tr>
+				<td>From:</td>
+				<td><input [(ngModel)]='ticket1.from' type="text" /></td>
+			</tr>
+			<tr>
+				<td>To:</td>
+				<td><input [(ngModel)]='ticket1.to' type="text" /></td>
+			</tr>
+			<tr>
+				<td>Departure Time:</td>
+				<td><input [(ngModel)]='ticket1.departureTime' type="text" /></td>
+			</tr>
+			<tr>
+				<td>Arrival Time:</td>
+				<td><input [(ngModel)]='ticket1.arrivalTime' type="text" /></td>
+			</tr>
+
+		</table>
+
+		<button (click)='updateTicket()'>Update Employee</button>
+	</div>
+
+</body>
+</html>

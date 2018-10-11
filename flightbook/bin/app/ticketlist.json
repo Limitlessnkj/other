@@ -1,0 +1,102 @@
+[
+    {
+      	"id": 101,
+    	"airline": "Indigo",
+    	"price": 3600,
+    	"from": "Ranchi",
+    	"to": "Bangalore",
+    	"date": "2018-11-02",
+    	"departureTime": "12:30",
+    	"arrivalTime": "14:50"
+    },
+    {
+      	"id": 102,
+    	"airline": "Air India",
+    	"price": 4000,
+    	"from": "Ranchi",
+    	"to": "Bangalore",
+    	"date": "2018-12-12",
+    	"departureTime": "13:30",
+    	"arrivalTime": "16:10"
+    },
+    {
+      	"id": 103,
+    	"airline": "Go Air",
+    	"price": 5000,
+    	"from": "Delhi",
+    	"to": "Bangalore",
+    	"date": "2018-11-11",
+    	"departureTime": "09:50",
+    	"arrivalTime": "15:30"
+    },
+    {
+      	"id": 104,
+    	"airline": "Indigo",
+    	"price": 5700,
+    	"from": "Mumbai",
+    	"to": "Delihi",
+    	"date": "2019-01-09",
+    	"departureTime": "21:40",
+    	"arrivalTime": "04:40"
+    },
+    {
+      	"id": 105,
+    	"airline": "Air Asia",
+    	"price": 2700,
+    	"from": "Ranchi",
+    	"to": "Bangalore",
+    	"date": "2019-01-23",
+    	"departureTime": "23:20",
+    	"arrivalTime": "05:10"
+    },
+    {
+      	"id": 106,
+    	"airline": "Lufthsenia",
+    	"price": 3700,
+    	"from": "Bangalore",
+    	"to": "Mumbai",
+    	"date": "2018-10-26",
+    	"departureTime": "09:00",
+    	"arrivalTime": "21:30"
+    },
+    {
+      	"id": 107,
+    	"airline": "AirIndia",
+    	"price": 3600,
+    	"from": "Kolkota",
+    	"to": "Delhi",
+    	"date": "2018-11-21",
+    	"departureTime": "21:10",
+    	"arrivalTime": "23:30"
+    },
+    {
+      	"id": 108,
+    	"airline": "Indigo",
+    	"price": 4000,
+    	"from": "Goa",
+    	"to": "Kerla",
+    	"date": "2018-12-06",
+    	"departureTime": "01:30",
+    	"arrivalTime": "02:50"
+    },
+    {
+      	"id": 109,
+    	"airline": "Go Air",
+    	"price": 4800,
+    	"from": "Chennai",
+    	"to": "Kolkata",
+    	"date": "2018-11-02",
+    	"departureTime": "11:00",
+    	"arrivalTime": "15:50"
+    },
+    {
+      	"id": 110,
+    	"airline": "Air Asia",
+    	"price": 7000,
+    	"from": "Hydrabad",
+    	"to": "Raipur",
+    	"date": "2018-10-21",
+    	"departureTime": "02:30",
+    	"arrivalTime": "05:50"
+    }
+  ]
