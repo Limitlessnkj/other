@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+ a:hover {
+   text-decoration: underline;
+}
+
+</style>
+</head>
+<body>
+	<div>
+         <!-- Table to sort the Mobile Details -->
+		<table border="2" align="center">
+			<tr>
+				<th><a (click)='sortById("mobId")'>Mobile Id</a></th>
+				<th><a (click)='sortByName("mobName")'>Mobile Name</a></th>
+				<th><a (click)='sortByPrice("mobPrice")'>Mobile Price</a></th>
+				<th>ACTION</th>
+			</tr>
+			<!-- To delete mobile details when clicked on delete button -->
+			<tr *ngFor='let i = index, let mob of mobiles'>
+				<td>{{ mob.mobId }}</td>
+				<td>{{ mob.mobName }}</td>
+				<td>{{ mob.mobPrice| currency:'USD':true }}</td>
+				<td><button (click)='deleteMobile(i)'>Delete</button></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
