@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+  <mvc:annotation-driven></mvc:annotation-driven>
+  <!-- Spring will search for beans in com.cg package -->
+  <context:component-scan base-package="com.cg" />
+  <!-- Will take care of @Transactional -->
+  <tx:annotation-driven transaction-manager="transactionManager"/>
+  <!-- Will take care of all jpa transactions -->
+  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+     <property name="entityManagerFactory" ref="emFactory" />
+  </bean>
+  <!-- Hibernate way of JPA configuration -->
+  <bean id="emFactory" 
+     class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+     <property name="dataSource" ref="dSource"/>
+     <property name="packagesToScan" value="com.cg.bean"/>
+     <property name="persistenceProviderClass" 
+           value="org.hibernate.jpa.HibernatePersistenceProvider"/>
+     <property name="jpaPropertyMap">
+         <map>
+            <entry key="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect" />
+            <entry key="hibernate.hbm2ddl.auto" value="update" />
+         </map>
+     </property>
+  </bean>
+	<bean id="dSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.user}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	<bean id="properties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:/oracle.properties</value>
+		</property>
+	</bean>
+	
+  <!-- The view resolver will resolve logical view to a jsp file -->
+  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  	<property name="prefix" value="/" />
+  	<property name="suffix" value=".jsp" />
+  </bean>
+</beans>
